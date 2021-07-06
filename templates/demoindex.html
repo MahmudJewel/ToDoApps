@@ -19,33 +19,37 @@
 				<div class="col-2"></div>
 				<div class="col-8">
 					<form action="" method="post" class="form-inline">
-						{% csrf_token %}
-					<input type="text" name="content" class="form-control p-3" placeholder="Write ...." required="">
+						
+					<input type="text" name="content" class="form-control p-3" placeholder="Write ....">
 					<div class="text-center">
 					<button class="btn btn-primary mt-1 mb-5">Add A Task</button>
 					</div>
 					</form>
 
 					<div>
-						{% for doc in documents %}
 						<ul class="list-group">
-						<li class="list-group-item">{{doc.content}}
+						<li class="list-group-item">btn btn-danger float-end ms-1 btn btn-danger float-end ms-1 btn btn-danger float-end ms-1
 								
-								<a href="/delete_item/{{doc.id}}" class="btn btn-danger float-end ms-1">Delete</a>
+								<button class="btn btn-danger float-end ms-1">Delete</button>
 								<button class="btn btn-success float-end">Edit</button>
 								
 		
 						</li>
+
+						<li class="list-group-item">btn btn-danger float-end ms-1
+								
+								<button class="btn btn-danger float-end ms-1">Delete</button>
+								<button class="btn btn-success float-end">Edit</button>
+								
+		
+						</li>
+
 						</ul>
-						{% endfor %}
 					</div>
 
 
 				</div>
 				<div class="col-2"></div>
-			</div>
-			<div class="text-center my-5">
-				<div>&copy: tech villain</div>
 			</div>
 		
 	</body>

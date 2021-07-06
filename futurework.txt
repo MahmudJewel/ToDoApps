@@ -1,0 +1,6 @@
+bug fixed:
+	reload and add
+	
+	
+	delete:
+		confirm

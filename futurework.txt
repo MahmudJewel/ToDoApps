@@ -1,6 +1,5 @@
-bug fixed:
-	reload and add
-	
+Saved confirmations alert
 	
 	delete:
 		confirm
+	

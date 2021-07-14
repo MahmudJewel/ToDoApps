@@ -21,10 +21,18 @@ def home(request):
 
 def delete_item(request, tid):
 	document=ItemList.objects.get(id=tid)
-	document.delete()
-	print('deleted', tid)
+	context={
+		'document' : document,
+	}
+
+	if request.method == 'POST': #confirming
+		document.delete()
+		messages.success(request, 'Successfully Deleted') #successfully message
+		#print('deleted', tid)
+		return redirect('/')
+
 	#return render(request, 'index.html')
-	return redirect('/')
+	return render(request,'confirm.html', context)
 
 def edit(request, tid):
 	document=ItemList.objects.get(id=tid)

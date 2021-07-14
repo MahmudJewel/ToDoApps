@@ -10,6 +10,7 @@ def home(request):
 	if request.method == 'POST' :
 		dt=ItemList(content=viewContent)
 		dt.save()
+		messages.success(request,'Successfully Saved')
 		return redirect('/') #To solved 'reload and automatically add' problem
 	documents=ItemList.objects.all().order_by('taking_date')
 

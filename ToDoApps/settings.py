@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-z913vx8_t5o#ahodt51t37t4-*9ytn3k*@zi%)lcl26wq=v2k3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*'] #new
+ALLOWED_HOSTS = ['127.0.0.1','dailynotes.herokuapp.com'] #new
 
 
 # Application definition
@@ -45,9 +45,10 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    
+    'whitenoise.middleware.WhiteNoiseMiddleware', #new
     'django.contrib.sessions.middleware.SessionMiddleware',
 
-    'whitenoise.middleware.WhiteNoiseMiddleware', #new
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

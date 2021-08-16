@@ -1,1 +1,1 @@
-web: gunicorn ToDoApps.wsgi --log-file -
+web: gunicorn ToDoApps.wsgi

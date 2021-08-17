@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z913vx8_t5o#ahodt51t37t4-*9ytn3k*@zi%)lcl26wq=v2k3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*'] #new
 
@@ -32,13 +33,14 @@ ALLOWED_HOSTS = ['*'] #new
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic', #New
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
 
-    'whitenoise.runserver_nostatic',#New
+    #'whitenoise.runserver_nostatic',#New
     'django.contrib.staticfiles',
     'second',
 ]
@@ -87,7 +89,7 @@ DATABASES = {
     }
 }
 
-
+WHITENOISE_USE_FINDERS = True #New
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -133,4 +135,10 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #new!
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #new!
+
+#New start
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#New End

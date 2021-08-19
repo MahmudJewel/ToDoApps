@@ -27,13 +27,13 @@ SECRET_KEY = 'django-insecure-z913vx8_t5o#ahodt51t37t4-*9ytn3k*@zi%)lcl26wq=v2k3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*'] #new
+ALLOWED_HOSTS = ['dailynotes.herokuapp.com', '127.0.0.1'] #new
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic', #New
+    #'whitenoise.runserver_nostatic', #New
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,7 +89,7 @@ DATABASES = {
     }
 }
 
-WHITENOISE_USE_FINDERS = True #New
+#WHITENOISE_USE_FINDERS = True #New
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -138,7 +138,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' #new!
 
 #New start
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#db_from_env = dj_database_url.config(conn_max_age=500)
+#DATABASES['default'].update(db_from_env)
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #New End
